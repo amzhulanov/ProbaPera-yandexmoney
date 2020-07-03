@@ -1,0 +1,33 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.1.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'com.jam.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+	jcenter()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	// https://mvnrepository.com/artifact/com.yandex.money.api/yandex-money-sdk-java
+	compile group: 'com.yandex.money.api', name: 'yandex-money-sdk-java', version: '7.2.23'
+	implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+	// https://mvnrepository.com/artifact/com.google.gwt/gwt
+	compile group: 'com.google.gwt', name: 'gwt', version: '2.9.0', ext: 'pom'
+	compile group: 'com.vaadin', name: 'vaadin-client', version: '7.6.2'
+//Thanks for using https://jar-download.com
+
+}
+
+test {
+	useJUnitPlatform()
+}
